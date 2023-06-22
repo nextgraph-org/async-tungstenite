@@ -41,7 +41,8 @@ futures-io = { version = "0.3", default-features = false, features = ["std"] }
 pin-project-lite = "0.2"
 
 [dependencies.tungstenite]
-version = "0.19"
+git = "https://git.nextgraph.org/NextGraph/tungstenite-rs.git"
+branch = "nextgraph"
 default-features = false
 
 [dependencies.async-std]
