@@ -1,7 +1,7 @@
-use tungstenite::client::{uri_mode, IntoClientRequest};
-use tungstenite::handshake::client::Request;
-use tungstenite::stream::Mode;
-use tungstenite::Error;
+use ng_tungstenite::client::{uri_mode, IntoClientRequest};
+use ng_tungstenite::handshake::client::Request;
+use ng_tungstenite::stream::Mode;
+use ng_tungstenite::Error;
 
 use super::TokioAdapter;
 
@@ -23,7 +23,7 @@ where
     match mode {
         Mode::Plain => Ok(TokioAdapter::new(socket)),
         Mode::Tls => Err(Error::Url(
-            tungstenite::error::UrlError::TlsFeatureNotEnabled,
+            ng_tungstenite::error::UrlError::TlsFeatureNotEnabled,
         )),
     }
 }

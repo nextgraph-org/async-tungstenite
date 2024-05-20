@@ -42,7 +42,7 @@
     unused_import_braces
 )]
 
-pub use tungstenite;
+pub use ng_tungstenite as tungstenite;
 
 mod compat;
 mod handshake;
@@ -71,7 +71,7 @@ use std::pin::Pin;
 use std::task::{Context, Poll};
 
 #[cfg(feature = "handshake")]
-use tungstenite::{
+use ng_tungstenite::{
     client::IntoClientRequest,
     handshake::{
         client::{ClientHandshake, Response},
@@ -79,7 +79,7 @@ use tungstenite::{
         HandshakeError,
     },
 };
-use tungstenite::{
+use ng_tungstenite::{
     error::Error as WsError,
     protocol::{Message, Role, WebSocket, WebSocketConfig},
 };
@@ -93,7 +93,7 @@ pub mod gio;
 #[cfg(feature = "tokio-runtime")]
 pub mod tokio;
 
-use tungstenite::protocol::CloseFrame;
+use ng_tungstenite::protocol::CloseFrame;
 
 /// Creates a WebSocket handshake from a request and a stream.
 /// For convenience, the user may call this with a url string, a URL,
@@ -204,7 +204,7 @@ where
     C: Callback + Unpin,
 {
     let f = handshake::server_handshake(stream, move |allow_std| {
-        tungstenite::accept_hdr_with_config(allow_std, callback, config)
+        ng_tungstenite::accept_hdr_with_config(allow_std, callback, config)
     });
     f.await.map_err(|e| match e {
         HandshakeError::Failure(e) => e,
@@ -436,8 +436,8 @@ where
 /// Get a domain from an URL.
 #[inline]
 pub(crate) fn domain(
-    request: &tungstenite::handshake::client::Request,
-) -> Result<String, tungstenite::Error> {
+    request: &ng_tungstenite::handshake::client::Request,
+) -> Result<String, ng_tungstenite::Error> {
     request
         .uri()
         .host()
@@ -455,8 +455,8 @@ pub(crate) fn domain(
 
             host.to_owned()
         })
-        .ok_or(tungstenite::Error::Url(
-            tungstenite::error::UrlError::NoHostName,
+        .ok_or(ng_tungstenite::Error::Url(
+            ng_tungstenite::error::UrlError::NoHostName,
         ))
 }
 
@@ -468,8 +468,8 @@ pub(crate) fn domain(
 /// Get the port from an URL.
 #[inline]
 pub(crate) fn port(
-    request: &tungstenite::handshake::client::Request,
-) -> Result<u16, tungstenite::Error> {
+    request: &ng_tungstenite::handshake::client::Request,
+) -> Result<u16, ng_tungstenite::Error> {
     request
         .uri()
         .port_u16()
@@ -478,8 +478,8 @@ pub(crate) fn port(
             Some("ws") => Some(80),
             _ => None,
         })
-        .ok_or(tungstenite::Error::Url(
-            tungstenite::error::UrlError::UnsupportedUrlScheme,
+        .ok_or(ng_tungstenite::Error::Url(
+            ng_tungstenite::error::UrlError::UnsupportedUrlScheme,
         ))
 }
 
@@ -493,7 +493,7 @@ mod tests {
     ))]
     #[test]
     fn domain_strips_ipv6_brackets() {
-        use tungstenite::client::IntoClientRequest;
+        use ng_tungstenite::client::IntoClientRequest;
 
         let request = "ws://[::1]:80".into_client_request().unwrap();
         assert_eq!(crate::domain(&request).unwrap(), "::1");
@@ -502,7 +502,7 @@ mod tests {
     #[cfg(feature = "handshake")]
     #[test]
     fn requests_cannot_contain_invalid_uris() {
-        use tungstenite::client::IntoClientRequest;
+        use ng_tungstenite::client::IntoClientRequest;
 
         assert!("ws://[".into_client_request().is_err());
         assert!("ws://[blabla/bla".into_client_request().is_err());

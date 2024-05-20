@@ -5,19 +5,19 @@ use crate::WebSocketStream;
 use futures_io::{AsyncRead, AsyncWrite};
 #[allow(unused_imports)]
 use log::*;
-use std::future::Future;
-use std::io::{Read, Write};
-use std::pin::Pin;
-use std::task::{Context, Poll};
-use tungstenite::WebSocket;
+use ng_tungstenite::WebSocket;
 #[cfg(feature = "handshake")]
-use tungstenite::{
+use ng_tungstenite::{
     handshake::{
         client::Response, server::Callback, HandshakeError as Error, HandshakeRole,
         MidHandshake as WsHandshake,
     },
     ClientHandshake, ServerHandshake,
 };
+use std::future::Future;
+use std::io::{Read, Write};
+use std::pin::Pin;
+use std::task::{Context, Poll};
 
 pub(crate) async fn without_handshake<F, S>(stream: S, f: F) -> WebSocketStream<S>
 where

@@ -1,8 +1,8 @@
 //! `async-tls` integration.
-use tungstenite::client::{uri_mode, IntoClientRequest};
-use tungstenite::handshake::client::{Request, Response};
-use tungstenite::protocol::WebSocketConfig;
-use tungstenite::Error;
+use ng_tungstenite::client::{uri_mode, IntoClientRequest};
+use ng_tungstenite::handshake::client::{Request, Response};
+use ng_tungstenite::protocol::WebSocketConfig;
+use ng_tungstenite::Error;
 
 use futures_io::{AsyncRead, AsyncWrite};
 
@@ -12,7 +12,7 @@ use async_tls::client::TlsStream;
 use async_tls::TlsConnector as AsyncTlsConnector;
 use real_async_tls as async_tls;
 
-use tungstenite::stream::Mode;
+use ng_tungstenite::stream::Mode;
 
 use crate::domain;
 use crate::stream::Stream as StreamSwitcher;

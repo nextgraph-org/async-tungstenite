@@ -1,11 +1,11 @@
 use real_tokio_rustls::rustls::{ClientConfig, RootCertStore, ServerName};
 use real_tokio_rustls::{client::TlsStream, TlsConnector};
 
-use tungstenite::client::{uri_mode, IntoClientRequest};
-use tungstenite::error::TlsError;
-use tungstenite::handshake::client::Request;
-use tungstenite::stream::Mode;
-use tungstenite::Error;
+use ng_tungstenite::client::{uri_mode, IntoClientRequest};
+use ng_tungstenite::error::TlsError;
+use ng_tungstenite::handshake::client::Request;
+use ng_tungstenite::stream::Mode;
+use ng_tungstenite::Error;
 
 use std::convert::TryFrom;
 

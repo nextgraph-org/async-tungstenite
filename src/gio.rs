@@ -1,5 +1,5 @@
 //! `gio` integration.
-use tungstenite::Error;
+use ng_tungstenite::Error;
 
 use std::io;
 
@@ -7,10 +7,10 @@ use gio::prelude::*;
 
 use futures_io::{AsyncRead, AsyncWrite};
 
-use tungstenite::client::{uri_mode, IntoClientRequest};
-use tungstenite::handshake::client::Request;
-use tungstenite::handshake::server::{Callback, NoCallback};
-use tungstenite::stream::Mode;
+use ng_tungstenite::client::{uri_mode, IntoClientRequest};
+use ng_tungstenite::handshake::client::Request;
+use ng_tungstenite::handshake::server::{Callback, NoCallback};
+use ng_tungstenite::stream::Mode;
 
 use crate::{client_async_with_config, domain, port, Response, WebSocketConfig, WebSocketStream};
 

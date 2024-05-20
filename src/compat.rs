@@ -6,8 +6,8 @@ use std::task::{Context, Poll};
 
 use futures_io::{AsyncRead, AsyncWrite};
 use futures_util::task;
+use ng_tungstenite::Error as WsError;
 use std::sync::Arc;
-use tungstenite::Error as WsError;
 
 pub(crate) enum ContextWaker {
     Read,

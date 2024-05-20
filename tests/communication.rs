@@ -5,7 +5,7 @@ use async_std::task;
 use async_tungstenite::{accept_async, client_async, WebSocketStream};
 use futures::prelude::*;
 use log::*;
-use tungstenite::Message;
+use ng_tungstenite::Message;
 
 async fn run_connection<S>(
     connection: WebSocketStream<S>,

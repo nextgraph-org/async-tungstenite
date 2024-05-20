@@ -40,7 +40,7 @@ use futures_channel::mpsc::{unbounded, UnboundedSender};
 use futures_util::{future, pin_mut, stream::TryStreamExt, StreamExt};
 
 use async_tungstenite::{tokio::TokioAdapter, WebSocketStream};
-use tungstenite::{
+use ng_tungstenite::{
     handshake::derive_accept_key,
     protocol::{Message, Role},
 };

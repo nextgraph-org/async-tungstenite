@@ -1,9 +1,9 @@
 //! `tokio` integration.
-use tungstenite::client::IntoClientRequest;
-use tungstenite::handshake::client::{Request, Response};
-use tungstenite::handshake::server::{Callback, NoCallback};
-use tungstenite::protocol::WebSocketConfig;
-use tungstenite::Error;
+use ng_tungstenite::client::IntoClientRequest;
+use ng_tungstenite::handshake::client::{Request, Response};
+use ng_tungstenite::handshake::server::{Callback, NoCallback};
+use ng_tungstenite::protocol::WebSocketConfig;
+use ng_tungstenite::Error;
 
 use tokio::net::TcpStream;
 

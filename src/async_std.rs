@@ -1,8 +1,8 @@
 //! `async-std` integration.
-use tungstenite::client::IntoClientRequest;
-use tungstenite::handshake::client::{Request, Response};
-use tungstenite::protocol::WebSocketConfig;
-use tungstenite::Error;
+use ng_tungstenite::client::IntoClientRequest;
+use ng_tungstenite::handshake::client::{Request, Response};
+use ng_tungstenite::protocol::WebSocketConfig;
+use ng_tungstenite::Error;
 
 use async_std::net::TcpStream;
 
@@ -17,10 +17,10 @@ pub(crate) mod async_native_tls {
     use async_native_tls::TlsStream;
     use real_async_native_tls as async_native_tls;
 
-    use tungstenite::client::uri_mode;
-    use tungstenite::handshake::client::Request;
-    use tungstenite::stream::Mode;
-    use tungstenite::Error;
+    use ng_tungstenite::client::uri_mode;
+    use ng_tungstenite::handshake::client::Request;
+    use ng_tungstenite::stream::Mode;
+    use ng_tungstenite::Error;
 
     use futures_io::{AsyncRead, AsyncWrite};
 
@@ -95,10 +95,10 @@ pub(crate) mod async_native_tls {
 pub(crate) mod dummy_tls {
     use futures_io::{AsyncRead, AsyncWrite};
 
-    use tungstenite::client::{uri_mode, IntoClientRequest};
-    use tungstenite::handshake::client::Request;
-    use tungstenite::stream::Mode;
-    use tungstenite::Error;
+    use ng_tungstenite::client::{uri_mode, IntoClientRequest};
+    use ng_tungstenite::handshake::client::Request;
+    use ng_tungstenite::stream::Mode;
+    use ng_tungstenite::Error;
 
     use crate::{client_async_with_config, domain, Response, WebSocketConfig, WebSocketStream};
 
@@ -117,7 +117,7 @@ pub(crate) mod dummy_tls {
         match mode {
             Mode::Plain => Ok(socket),
             Mode::Tls => Err(Error::Url(
-                tungstenite::error::UrlError::TlsFeatureNotEnabled,
+                ng_tungstenite::error::UrlError::TlsFeatureNotEnabled,
             )),
         }
     }

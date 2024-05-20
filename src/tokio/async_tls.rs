@@ -1,8 +1,8 @@
 use real_async_tls::client::TlsStream;
 use real_async_tls::TlsConnector;
 
-use tungstenite::client::IntoClientRequest;
-use tungstenite::Error;
+use ng_tungstenite::client::IntoClientRequest;
+use ng_tungstenite::Error;
 
 use crate::stream::Stream as StreamSwitcher;
 use crate::{Response, WebSocketConfig, WebSocketStream};

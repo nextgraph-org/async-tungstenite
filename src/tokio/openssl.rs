@@ -1,10 +1,10 @@
 use openssl::ssl::{ConnectConfiguration, SslConnector, SslMethod};
 use real_tokio_openssl::SslStream as TlsStream;
 
-use tungstenite::client::{uri_mode, IntoClientRequest};
-use tungstenite::handshake::client::Request;
-use tungstenite::stream::Mode;
-use tungstenite::Error;
+use ng_tungstenite::client::{uri_mode, IntoClientRequest};
+use ng_tungstenite::handshake::client::Request;
+use ng_tungstenite::stream::Mode;
+use ng_tungstenite::Error;
 
 use crate::stream::Stream as StreamSwitcher;
 use crate::{client_async_with_config, domain, Response, WebSocketConfig, WebSocketStream};
