@@ -1,4 +1,6 @@
-# async-tungstenite
+# ng-async-tungstenite
+
+fork of https://github.com/sdroege/async-tungstenite for the needs of NextGraph.org
 
 Asynchronous WebSockets for [async-std](https://async.rs),
 [tokio](https://tokio.rs), [gio](https://gtk-rs.org) and any `std`
@@ -31,28 +33,28 @@ can use it with non-blocking/asynchronous `TcpStream`s from and couple it
 together with other crates from the async stack. In addition, optional
 integration with various other crates can be enabled via feature flags
 
- * `async-tls`: Enables the `async_tls` module, which provides integration
-   with the [async-tls](https://crates.io/crates/async-tls) TLS stack and can
-   be used independent of any async runtime.
- * `async-std-runtime`: Enables the `async_std` module, which provides
-   integration with the [async-std](https://async.rs) runtime.
- * `async-native-tls`: Enables the additional functions in the `async_std`
-   module to implement TLS via
-   [async-native-tls](https://crates.io/crates/async-native-tls).
- * `tokio-runtime`: Enables the `tokio` module, which provides integration
-   with the [tokio](https://tokio.rs) runtime.
- * `tokio-native-tls`: Enables the additional functions in the `tokio` module to
-   implement TLS via [tokio-native-tls](https://crates.io/crates/tokio-native-tls).
- * `tokio-rustls-native-certs`: Enables the additional functions in the `tokio` 
-   module to implement TLS via [tokio-rustls](https://crates.io/crates/tokio-rustls)
-   and uses native system certificates found with
-   [rustls-native-certs](https://github.com/rustls/rustls-native-certs).
- * `tokio-rustls-webpki-roots`: Enables the additional functions in the `tokio` 
-   module to implement TLS via [tokio-rustls](https://crates.io/crates/tokio-rustls)
-   and uses the certificates [webpki-roots](https://github.com/rustls/webpki-roots)
-   provides.
- * `gio-runtime`: Enables the `gio` module, which provides integration with
-   the [gio](https://gtk-rs.org) runtime.
+- `async-tls`: Enables the `async_tls` module, which provides integration
+  with the [async-tls](https://crates.io/crates/async-tls) TLS stack and can
+  be used independent of any async runtime.
+- `async-std-runtime`: Enables the `async_std` module, which provides
+  integration with the [async-std](https://async.rs) runtime.
+- `async-native-tls`: Enables the additional functions in the `async_std`
+  module to implement TLS via
+  [async-native-tls](https://crates.io/crates/async-native-tls).
+- `tokio-runtime`: Enables the `tokio` module, which provides integration
+  with the [tokio](https://tokio.rs) runtime.
+- `tokio-native-tls`: Enables the additional functions in the `tokio` module to
+  implement TLS via [tokio-native-tls](https://crates.io/crates/tokio-native-tls).
+- `tokio-rustls-native-certs`: Enables the additional functions in the `tokio`
+  module to implement TLS via [tokio-rustls](https://crates.io/crates/tokio-rustls)
+  and uses native system certificates found with
+  [rustls-native-certs](https://github.com/rustls/rustls-native-certs).
+- `tokio-rustls-webpki-roots`: Enables the additional functions in the `tokio`
+  module to implement TLS via [tokio-rustls](https://crates.io/crates/tokio-rustls)
+  and uses the certificates [webpki-roots](https://github.com/rustls/webpki-roots)
+  provides.
+- `gio-runtime`: Enables the `gio` module, which provides integration with
+  the [gio](https://gtk-rs.org) runtime.
 
 ## Messages vs Streaming
 
